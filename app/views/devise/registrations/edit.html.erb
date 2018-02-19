@@ -4,6 +4,36 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "たんす公開" %>
+    <%= f.check_box :items_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label "着付け受付可能" %>
+    <%= f.check_box :dressing_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label "着付け指導可能" %>
+    <%= f.check_box :teaching_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label "プロフィール" %>
+    <%= f.text_area :profile %>
+  </div>
+
+  <div class="field">
+    <%= f.label "画像" %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
