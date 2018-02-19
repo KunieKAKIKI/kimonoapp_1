@@ -8,6 +8,11 @@ end
 #ログイン機能
 gem 'devise'
 
+#carrierwaveは、画像をアップロードするためのgem
+gem 'carrierwave'
+#アップロードした画像ファイルのサイズを変更するために使用するためのgem
+gem 'mini_magick'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # Use postgresql as the database for Active Record
