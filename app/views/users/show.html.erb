@@ -1,0 +1,37 @@
+<h1><%= @user.name %>のページ</h1>
+<p>
+  <strong>名前:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>たんす:</strong>
+  <%= if @user.items_status == true then "公開中" else "非公開" end %>
+</p>
+
+<p>
+  <strong>着付け受付:</strong>
+  <%= if @user.dressing_status == true then "可" else "不可" end %>
+</p>
+
+<p>
+  <strong>着付け指導:</strong>
+  <%= if @user.teaching_status == true then "可" else "不可" end  %>
+</p>
+
+<p>
+  <strong>プロフィール:</strong>
+  <%= @user.profile %>
+</p>
+
+<p>
+  <strong>画像:</strong>
+  <div class="icon-container"><%= image_tag @user.image, class: "icon" %></div>
+</p>
+
+<%= link_to 'Edit', edit_user_registration_path(@user) %>
