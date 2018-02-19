@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @coordinate.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @coordinate.image %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @coordinate.content %>
+</p>
+
+<%= link_to 'Edit', edit_coordinate_path(@coordinate) %> |
+<%= link_to 'Back', coordinates_path %>
