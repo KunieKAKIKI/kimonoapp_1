@@ -25,7 +25,7 @@ class CoordinatesController < ApplicationController
   # POST /coordinates.json
   def create
     @coordinate = Coordinate.new(coordinate_params)
-
+    @coordinate.user_id = current_user.id
     respond_to do |format|
       if @coordinate.save
         format.html { redirect_to @coordinate, notice: 'Coordinate was successfully created.' }
