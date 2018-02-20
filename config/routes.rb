@@ -6,7 +6,18 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  #追加　ここから
   resources :users, :only => [:index, :show]
+  get 'list', to: :show, controller: 'users'
+
+  resources :users do
+    resources :items, only:[:index, :choicelist]
+  end
+
+  resources :users do
+    resources :coordinates, only:[:index]
+  end
+  #ここまで
 
   root 'coordinates#index'
 
