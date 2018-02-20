@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :items
   resources :coordinates
 
+  resources :favorites, only: [:create, :destroy]
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

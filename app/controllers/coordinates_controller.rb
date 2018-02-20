@@ -10,6 +10,7 @@ class CoordinatesController < ApplicationController
   # GET /coordinates/1
   # GET /coordinates/1.json
   def show
+    @favorite = current_user.favorites.find_by(coordinate_id: @coordinate.id)
   end
 
   # GET /coordinates/new
