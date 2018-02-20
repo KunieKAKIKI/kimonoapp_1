@@ -28,21 +28,23 @@
         </div>
       </div>
     </nav>
-
-    <% if user_signed_in? %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
+    <div class="login">
+      <% if user_signed_in? %>
+        <%= link_to "マイページ", user_path(current_user.id), class: 'btn btn-info' %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-info' %>
+        <%= link_to "ログイン", new_user_session_path %>
+      <% end %>
+    </div>
+    <div class="notice">
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+    </div>
 
     <%= yield %>
   </body>
