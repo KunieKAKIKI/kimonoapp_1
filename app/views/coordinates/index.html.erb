@@ -1,3 +1,22 @@
+<h1>みなさんの装い</h1>
+<div class="btn_area">
+  <%= link_to 'New coordinate', new_coordinate_path, class: 'btn btn-default' %>
+</div>
+
+
+<% @coordinates.each do |coordinate| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="image_area">
+      <div class="coordinate_image"><%= link_to image_tag(coordinate.image), coordinate_path(coordinate.id) %></div>
+      </div>
+      <div class="caption">
+        <p><%= User.find_by(id: coordinate.user_id).name %>さん</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <h1>Coordinates</h1>
 
 <table>
