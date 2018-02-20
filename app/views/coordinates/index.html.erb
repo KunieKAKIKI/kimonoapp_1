@@ -1,10 +1,11 @@
-<h1>みなさんの装い</h1>
-<div class="btn_area">
-  <%= link_to 'New coordinate', new_coordinate_path, class: 'btn btn-default' %>
-</div>
+<div class="container">
+  <h1>みなさんの装い</h1>
+  <div class="btn_area">
+    <%= link_to 'New coordinate', new_coordinate_path, class: 'btn btn-default' %>
+  </div>
 
 
-<% @coordinates.each do |coordinate| %>
+  <% @coordinates.each do |coordinate| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <div class="image_area">
@@ -15,34 +16,6 @@
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
 
-<h1>Coordinates</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Image</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @coordinates.each do |coordinate| %>
-      <tr>
-        <td><%= coordinate.title %></td>
-        <td><%= coordinate.image %></td>
-        <td><%= coordinate.content %></td>
-        <td><%= link_to 'Show', coordinate %></td>
-        <td><%= link_to 'Edit', edit_coordinate_path(coordinate) %></td>
-        <td><%= link_to 'Destroy', coordinate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Coordinate', new_coordinate_path %>
+</div>
