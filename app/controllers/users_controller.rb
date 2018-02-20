@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def choicelist
-    #@coordinate = Coordinate.find(params[:coordinate_id])
+    @coordinate = Coordinate.find(params[:coordinate_id])
     @user = current_user
     @items = Item.where(user_id: @user.id)
   end

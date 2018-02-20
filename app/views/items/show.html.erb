@@ -18,5 +18,13 @@
   <%= @item.content %>
 </p>
 
+<p>
+<% if @choice.present? %>
+  <%= link_to '選択解除', choices_path(coordinate_id: @coordinate.id), method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to '選択', choices_path(coordinate_id: @coordinate.id), method: :post, class: 'btn btn-primary' %>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
