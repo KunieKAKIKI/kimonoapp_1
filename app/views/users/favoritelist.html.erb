@@ -1,0 +1,22 @@
+<h1>お気に入り一覧</h1>
+<div class="container">
+  <div class="row">
+    <% @favorite_coordinates.each do |coordinate| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="image_area">
+        <div class="show_image"><%= link_to image_tag(coordinate.image), coordinate_path(coordinate.id) %></div>
+        </div>
+        <div class="caption">
+          <p>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <%= User.find_by(id: coordinate.user_id).name %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'みなさんの装いへ', coordinates_path %>
