@@ -18,17 +18,21 @@
   overflow: hidden;
   margin-top:10px;
 }
+.show_image_area {
+  margin-top :5px;
+}
+
 .user_page_image_area {
   height: 180px;
   overflow: hidden;
   margin-top:10px;
   margin-bottom: 10px;
 }
-.coordinate_image {
+.show_image {
   text-align:center;
 }
 
-.coordinate_image img {
+.show_image img {
   max-width: 96%;
   height:auto;
   margin: 0 auto;

@@ -1,30 +1,28 @@
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @item.image %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= Category.find_by(id: @item.category_id).name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @item.content %>
-</p>
-
-<p>
-<% if @choice.present? %>
-  <%= link_to '選択解除', choices_path(coordinate_id: @coordinate.id), method: :delete, class: 'btn btn-danger' %>
-<% else %>
-  <%= link_to '選択', choices_path(coordinate_id: @coordinate.id), method: :post, class: 'btn btn-primary' %>
+<h1><%= @item.title %></h1>
+<% if @item.user != current_user %>
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+  <%= User.find_by(id: @item.user_id).name %><br><br>
 <% end %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="thumbnail">
+        <div class="show_image_area">
+          <div class="show_image"><%= image_tag(@item.image) %></div>
+        </div>
+        <div class="caption">
+          <h4><%= Category.find_by(id: @item.category_id).name %></h4>
+          <p><%= @item.content %></p>
+          <p>
+            <% if @item.user_id == current_user.id %>
+              <%= link_to '編集',edit_item_path(@item.id),data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-warning' %>
+              <%= link_to '削除',item_path(@item.id),method: :delete,data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger' %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'たんすへ戻る', items_path(user_id: @item.user_id) %>

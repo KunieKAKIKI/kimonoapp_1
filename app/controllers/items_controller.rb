@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
     @items = Item.where(user_id: @user.id)
   end
 

@@ -4,7 +4,7 @@
   <% if @user.image.present? %>
     <%= image_tag @user.image, class: "image_of_user" %>
   <% else %>
-    <%= image_tag 'camera.png', class: "image_of_user" %>
+    <%= image_tag 'user.png', class: "image_of_user" %>
   <% end %>
 </p>
 <p>
@@ -49,7 +49,7 @@
 
 
 <% if @user == current_user %>
-  <p><%= link_to 'たんす', items_path(user_id: @user.id), class: 'btn btn-default' %></p>
+  <p><%= link_to 'たんす', items_path(user_id: current_user.id), class: 'btn btn-default' %></p>
   <p><%= link_to 'お気に入りの装い', favoritelist_path(user_id: @user.id), class: 'btn btn-default' %></p>
   <p><%= link_to '登録情報の編集', edit_user_registration_path(@user) %></p>
 <% else %>
