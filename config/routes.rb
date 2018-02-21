@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-
   root 'coordinates#top'
-
-  get 'users/index'
-
-  get 'users/show'
-
   devise_for :users
+
+  resources :coordinates do
+    resources :comments
+  end
 
   #追加　ここから
   resources :users, only: [:index, :show]

@@ -10,4 +10,6 @@ class Coordinate < ApplicationRecord
   has_many :choice_items, through: :choices, source: :item
 
   belongs_to :user
+
+  has_many :comments, dependent: :destroy
 end
