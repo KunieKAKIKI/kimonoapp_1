@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'coordinates#top'
+
   get 'users/index'
 
   get 'users/show'
