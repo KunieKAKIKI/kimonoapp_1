@@ -1,8 +1,14 @@
-<ul>
+<ul class="list-group">
   <% comments.each do |comment| %>
     <% unless comment.id.nil? %>
-      <li>
-        <%= comment.content %></p>
+      <li class="list-group-item">
+        <p>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <%= User.find_by(id: comment.user_id).name %>
+        </p>
+        <p>
+          <%= comment.content %>
+        </p>
       </li>
     <% end %>
   <% end %>
