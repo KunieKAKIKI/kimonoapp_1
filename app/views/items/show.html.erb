@@ -1,8 +1,9 @@
 <h1><%= @item.title %></h1>
 <% if @item.user != current_user %>
-  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-  <%= User.find_by(id: @item.user_id).name %><br><br>
-<% end %>
+  <p class="user_name">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <%= User.find_by(id: @item.user_id).name%>
+  <% end %>
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-12">
