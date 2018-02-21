@@ -1,40 +1,35 @@
-<h1><%= @user.name %>さんのページ</h1>
-
-<p>
+<div class="container">
+<h1>
   <% if @user.image.present? %>
     <%= image_tag @user.image, class: "image_of_user" %>
   <% else %>
     <%= image_tag 'user.png', class: "image_of_user" %>
   <% end %>
-</p>
-<p>
-  <strong>たんす:</strong>
-  <% if @user.items_status == true %>
-    公開中
-    <%= link_to 'たんす', items_path(user_id: @user.id), class: 'btn btn-default' %>
-  <% else %>
-    非公開
-  <% end %>
-</p>
-
-<p>
-  <strong>着付け受付:</strong>
-  <%= if @user.dressing_status == true then "可" else "不可" end %>
-</p>
-
-<p>
-  <strong>着付け指導:</strong>
-  <%= if @user.teaching_status == true then "可" else "不可" end  %>
-</p>
-
-<p>
-  <strong>プロフィール:</strong>
-  <%= @user.profile %>
-</p>
-
-<p>
-  <strong>装い:</strong>
-  <div class="container">
+  <%= @user.name %>
+</h1>
+<p class="profile_content"><%= @user.profile %></p>
+<table class="profile">
+  <tr>
+    <th><strong>たんす</strong></th>
+    <td>
+      <% if @user.items_status == true %>
+        <%= link_to '公開中', items_path(user_id: @user.id), class: "alert-danger" %>
+      <% else %>
+        非公開
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th><strong>着付け受付</strong></th>
+    <td><%= if @user.dressing_status == true then "可" else "不可" end %></td>
+  </tr>
+  <tr>
+    <th><strong>着付け指導</strong></th>
+    <td><%= if @user.teaching_status == true then "可" else "不可" end  %></td>
+  </tr>
+</table>
+<h3>装い</h3>
+<div class="row">
   <% @coordinates.each do |coordinate| %>
     <div class="col-sm-3 col-md-2">
       <div class="thumbnail">
@@ -45,12 +40,10 @@
     </div>
   <% end %>
   </div>
-</p>
-
-
-<% if @user == current_user %>
-  <p><%= link_to 'たんす', items_path(user_id: current_user.id), class: 'btn btn-default' %></p>
-  <p><%= link_to 'お気に入りの装い', favoritelist_path(user_id: @user.id), class: 'btn btn-default' %></p>
-  <p><%= link_to '登録情報の編集', edit_user_registration_path(@user) %></p>
-<% else %>
-<% end %>
+  <% if @user == current_user %>
+    <p><%= link_to 'たんす', items_path(user_id: current_user.id), class: 'btn btn-default' %></p>
+    <p><%= link_to 'お気に入りの装い', favoritelist_path(user_id: @user.id), class: 'btn btn-default' %></p>
+    <p><%= link_to '登録情報の編集', edit_user_registration_path(@user) %></p>
+  <% else %>
+  <% end %>
+</div>
