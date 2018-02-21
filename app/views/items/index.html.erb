@@ -2,25 +2,36 @@
   <% if @user == current_user %>
     <h1>私のたんす</h1>
     <div class="btn_area">
-      <%= link_to 'New Item', new_item_path, class: 'btn btn-default' %>
+      <%= link_to 'たんすに追加', new_item_path, class: 'btn btn-default' %>
     </div>
   <% else %>
     <h1>たんす</h1>
     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
     <%= @user.name %><br><br>
   <% end %>
-  <% @items.each do |item| %>
-    <div class="col-sm-3 col-md-2">
-      <div class="thumbnail">
-        <div class="user_page_image_area">
-          <div class="coordinate_image"><%= link_to image_tag(item.image), item_path(item.id) %></div>
-        </div>
-        <div class="caption">
-        <% if item.user_id == current_user.id %>
-          <%= link_to '削除', item, method: :delete, data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger' %>
-        <% end %>
-        </div>
-      </div>
+
+  <% @items.each do |key,items| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><%= Category.find_by(id: key).name %></h4>
     </div>
-  <% end %>
+    <div class="row panel-body">
+      <% items.each do |item| %>
+        <div class="col-sm-3 col-md-2">
+          <div class="thumbnail">
+            <div class="user_page_image_area">
+              <div class="coordinate_image"><%= link_to image_tag(item.image), item_path(item.id) %></div>
+            </div>
+            <div class="caption">
+              <p><%= item.title %></p>
+              <% if item.user_id == current_user.id %>
+                <%= link_to '削除', item, method: :delete, data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
+  <% end %>
+</div>

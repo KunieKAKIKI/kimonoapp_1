@@ -5,7 +5,8 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @user = User.find(params[:user_id])
-    @items = Item.where(user_id: @user.id)
+    @categories = Category.all
+    @items = Item.where(user_id: @user.id).group_by(&:category_id)
   end
 
   # GET /items/1
