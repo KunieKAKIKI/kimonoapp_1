@@ -1,14 +1,14 @@
-<% if @user == current_user %>
-  <h1>私のたんす</h1>
-  <div class="btn_area">
-    <%= link_to 'New Item', new_item_path, class: 'btn btn-default' %>
-  </div>
-<% else %>
-  <h1>たんす</h1>
-  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-  <%= @user.name %><br><br>
-<% end %>
 <div class="container">
+  <% if @user == current_user %>
+    <h1>私のたんす</h1>
+    <div class="btn_area">
+      <%= link_to 'New Item', new_item_path, class: 'btn btn-default' %>
+    </div>
+  <% else %>
+    <h1>たんす</h1>
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <%= @user.name %><br><br>
+  <% end %>
   <% @items.each do |item| %>
     <div class="col-sm-3 col-md-2">
       <div class="thumbnail">
