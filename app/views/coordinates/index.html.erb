@@ -1,7 +1,7 @@
 <div class="container">
   <h1>みなさんの装い</h1>
   <div class="btn_area">
-    <%= link_to '新規登録', new_coordinate_path, class: 'btn btn-default' %>
+    <%= link_to '装いを登録', new_coordinate_path, class: 'btn btn-default' %>
   </div>
   <div class="row">
     <% @coordinates.each do |coordinate| %>
@@ -13,7 +13,7 @@
         <div class="caption">
           <p>
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            <%= User.find_by(id: coordinate.user_id).name %>
+            <%= link_to User.find_by(id: coordinate.user_id).name, user_path(coordinate.user_id) %>
           </p>
         </div>
       </div>

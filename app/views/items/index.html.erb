@@ -25,7 +25,9 @@
             <div class="caption">
               <p><%= item.title %></p>
               <% if item.user_id == current_user.id %>
-                <%= link_to '削除', item, method: :delete, data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger' %>
+                <div class="btn_area">
+                  <%= link_to "", item_path(item.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'glyphicon glyphicon-trash' %>
+                </div>
               <% end %>
             </div>
           </div>

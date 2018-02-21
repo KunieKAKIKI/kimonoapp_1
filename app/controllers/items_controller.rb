@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
     @item.category_id = params[:category][:id]
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item, notice: 'たんすに追加しました' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to items_path(user_id: @item.user_id), notice: 'たんすから削除しました' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +73,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:title, :image, :content, :category_id)
+      params.require(:item).permit(:title, :image, :content, :category_id, :user_id)
     end
 end

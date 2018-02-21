@@ -38,12 +38,8 @@
 
   <h3>コメント一覧</h3>
   <div id="comments_area">
-  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
     <%= render partial: 'comments/index', locals: { comments: @comments, coordinate: @coordinate } %>
   </div>
-
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
   <%= render partial: 'comments/form', locals: { comment: @comment, coordinate: @coordinate } %>
-
 </div>
 <%= link_to 'みなさんの装いへ', coordinates_path %>
