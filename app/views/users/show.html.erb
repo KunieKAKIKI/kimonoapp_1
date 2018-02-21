@@ -1,17 +1,20 @@
-<h1><%= @user.name %>のページ</h1>
-<p>
-  <strong>名前:</strong>
-  <%= @user.name %>
-</p>
+<h1><%= @user.name %>さんのページ</h1>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <% if @user.image.present? %>
+    <%= image_tag @user.image, class: "image_of_user" %>
+  <% else %>
+    <%= image_tag 'camera.png', class: "image_of_user" %>
+  <% end %>
 </p>
-
 <p>
   <strong>たんす:</strong>
-  <%= if @user.items_status == true then "公開中" else "非公開" end %>
+  <% if @user.items_status == true %>
+    公開中
+    <%= link_to 'たんす', items_path(user_id: @user.id), class: 'btn btn-default' %>
+  <% else %>
+    非公開
+  <% end %>
 </p>
 
 <p>
@@ -30,8 +33,24 @@
 </p>
 
 <p>
-  <strong>画像:</strong>
-  <div class="icon-container"><%= image_tag @user.image, class: "icon" %></div>
+  <strong>装い:</strong>
+  <div class="container">
+  <% @coordinates.each do |coordinate| %>
+    <div class="col-sm-3 col-md-2">
+      <div class="thumbnail">
+        <div class="image_area">
+        <div class="coordinate_image"><%= link_to image_tag(coordinate.image), coordinate_path(coordinate.id) %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
 </p>
 
-<%= link_to 'Edit', edit_user_registration_path(@user) %>
+
+<% if @user == current_user %>
+  <p><%= link_to 'たんす', items_path(user_id: @user.id), class: 'btn btn-default' %></p>
+  <p><%= link_to 'お気に入りの装い', favoritelist_path(user_id: @user.id), class: 'btn btn-default' %></p>
+  <p><%= link_to '登録情報の編集', edit_user_registration_path(@user) %></p>
+<% else %>
+<% end %>
