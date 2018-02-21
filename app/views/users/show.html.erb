@@ -28,6 +28,9 @@
     <td><%= if @user.teaching_status == true then "可" else "不可" end  %></td>
   </tr>
 </table>
+<% if @user == current_user %>
+  <p class="btn_area"><%= link_to '登録情報の編集', edit_user_registration_path(@user) %></p>
+<% end %>
 <h3>装い</h3>
 <div class="row">
   <% @coordinates.each do |coordinate| %>
@@ -43,7 +46,5 @@
   <% if @user == current_user %>
     <p><%= link_to 'たんす', items_path(user_id: current_user.id), class: 'btn btn-default' %></p>
     <p><%= link_to 'お気に入りの装い', favoritelist_path(user_id: @user.id), class: 'btn btn-default' %></p>
-    <p><%= link_to '登録情報の編集', edit_user_registration_path(@user) %></p>
-  <% else %>
   <% end %>
 </div>
