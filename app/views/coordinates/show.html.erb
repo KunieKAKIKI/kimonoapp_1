@@ -1,7 +1,10 @@
-<p>
-  <strong>Title:</strong>
-  <%= @coordinate.title %>
-</p>
+<h1><%= @coordinate.title %></h1>
+
+<% if @coordinate.user != current_user %>
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+  <%= User.find_by(id: @coordinate.user_id).name %>
+<% end %>
+
 
 <p>
   <strong>Image:</strong>
