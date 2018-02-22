@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -45,6 +44,8 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    @item.user_id = current_user.id
+    @item.category_id = params[:category][:id]
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }

@@ -29,7 +29,7 @@
                       </div>
                     </div>
                     <div class="caption">
-                      <h5><%= Category.find_by(id: item).name %></h5>
+                      <h5><%= Category.find_by(id: item.category_id).name %></h5>
                       <p><%= item.title %></p>
                     </div>
                   </div>

@@ -8,7 +8,7 @@
     <h1>たんす</h1>
     <p class="user_name">
       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-      <%= @user.name %>
+      <%= link_to @user.name, user_path(@user.id) %>
     </p>
   <% end %>
 
