@@ -6,8 +6,10 @@
     </div>
   <% else %>
     <h1>たんす</h1>
-    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-    <%= @user.name %><br><br>
+    <p class="user_name">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <%= @user.name %>
+    </p>
   <% end %>
 
   <% @items.each do |key,items| %>

@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  validates :title,  presence: true
+  validates :image,  presence: true
+  validates :category_id,  presence: true
 
   #imageカラムに、ImageUploaderを紐付け
   mount_uploader :image, ImageUploader

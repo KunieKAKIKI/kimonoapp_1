@@ -1,4 +1,7 @@
 class Coordinate < ApplicationRecord
+  validates :title,  presence: true
+  validates :image,  presence: true
+  validates :content,  presence: true
 
   #imageカラムに、ImageUploaderを紐付け
   mount_uploader :image, ImageUploader

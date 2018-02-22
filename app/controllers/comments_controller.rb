@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
+
   def create
     @coordinate = Coordinate.find(params[:coordinate_id])
     @comment = @coordinate.comments.build(comment_params)
