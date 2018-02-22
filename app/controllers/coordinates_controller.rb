@@ -11,6 +11,8 @@ class CoordinatesController < ApplicationController
   # GET /coordinates/1.json
   def show
     @favorite = current_user.favorites.find_by(coordinate_id: @coordinate.id)
+    @choices = Choice.where(coordinate_id: @coordinate.id)
+    @user = User.find_by(id: @coordinate.user_id)
     @comment = @coordinate.comments.build
     @comments = @coordinate.comments
   end
