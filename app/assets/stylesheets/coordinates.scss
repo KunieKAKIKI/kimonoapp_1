@@ -1,13 +1,54 @@
 // Place all the styles related to the coordinates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top_image {
+.top_1 {
   width:100%;
+  height: 180px;
+  background-image:url('samekomonblue.jpg');
+}
+.top_2 {
+  width:100%;
+  height: 10px;
+  background-color: #aacf53;
+}
+.top_3 {
+  text-align: center;
+  background-image:url('kikkou.jpg');
+  margin:0;
+  height:50px;
+  padding-top: 20px;
+}
+.top_4 {
+  width:100%;
+  height: 270px;
+  background-image:url('samekomonblue.jpg');
+  margin-bottom: 20px;
 }
 
-.login {
-  margin:20px 10px;
-  text-align:right;
+.top_content {
+  font-size: 1.5rem;
+  color:#a22041;
+  font-family:serif;
+  padding:0;
+}
+.footer {
+ background-color: #f8f8f8;
+ height:50px;
+ width:100%;
+ position:relative;
+ bottom:0;
+ display:table;
+ border-radius: 4px;
+ border: 1px solid ;
+ border-color: #e7e7e7;
+}
+
+.footer p {
+ font-size:1.3rem;
+ color:#a22041;
+ text-align:center;
+ vertical-align:middle;
+ display:table-cell;
 }
 
 .image_of_user {

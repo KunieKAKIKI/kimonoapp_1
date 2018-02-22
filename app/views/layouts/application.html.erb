@@ -23,21 +23,22 @@
         <div id="gnavi" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "みなさんの装い", coordinates_path %></li>
-            <li><%= link_to '新規投稿',new_coordinate_path %></li>
+            <li><%= link_to '写真を投稿',new_coordinate_path,class: "glyphicon glyphicon-camera" %></li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><p class="navbar-text glyphicon glyphicon-user"><%=current_user.name %>さん</p></li>
+                <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "利用登録", new_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-    <div class="login">
-      <% if user_signed_in? %>
-        <%= link_to "マイページ", user_path(current_user.id), class: 'btn btn-info' %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "利用登録", new_user_registration_path, class: 'btn btn-info' %>
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-    </div>
-    <div class="notice">
+     </nav>
+     <div class="notice">
       <% if notice %>
         <p class="alert alert-notice"><%= notice %></p>
       <% end %>
@@ -48,4 +49,7 @@
 
     <%= yield %>
   </body>
+    <footer class="footer">
+      <p>yosohoishashinchou 2018</p>
+    </footer>
 </html>

@@ -17,3 +17,7 @@
 .actions {
   text-align: center;
 }
+.navbar-brand {
+  font-size: 3rem;
+  font-family:serif;
+}
