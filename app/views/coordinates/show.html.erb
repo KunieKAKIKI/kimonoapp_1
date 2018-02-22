@@ -17,7 +17,7 @@
         </div>
         <% if @user.items_status == true || @user == current_user %>
           <% if @choices.present? %>
-            <h4>使ったのはこちら・・・</h4>
+            <h4>使ったのは・・・</h4>
             <div class="row">
               <% @choices.each do |choice| %>
               <% item = Item.find_by(id: choice.item_id) %>
@@ -65,4 +65,3 @@
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, coordinate: @coordinate } %>
 </div>
-<%= link_to 'みなさんの装いへ', coordinates_path %>

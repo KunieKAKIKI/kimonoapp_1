@@ -31,7 +31,7 @@
 <% if @user == current_user %>
   <p class="btn_area"><%= link_to '登録情報の編集', edit_user_registration_path(@user) %></p>
 <% end %>
-<h3>装い</h3>
+<% if @coordinates.present? %><h3>装い</h3><% end %>
 <div class="row">
   <% @coordinates.each do |coordinate| %>
     <div class="col-sm-3 col-md-2">
