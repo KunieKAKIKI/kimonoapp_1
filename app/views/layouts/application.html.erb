@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kimonoapp</title>
+    <title>装い写真帖</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -22,7 +22,7 @@
         </div>
         <div id="gnavi" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "写真一覧", coordinates_path %></li>
+            <li><%= link_to "みなさんの装い", coordinates_path %></li>
             <li><%= link_to '新規投稿',new_coordinate_path %></li>
           </ul>
         </div>
@@ -33,7 +33,7 @@
         <%= link_to "マイページ", user_path(current_user.id), class: 'btn btn-info' %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-info' %>
+        <%= link_to "利用登録", new_user_registration_path, class: 'btn btn-info' %>
         <%= link_to "ログイン", new_user_session_path %>
       <% end %>
     </div>

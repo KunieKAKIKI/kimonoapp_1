@@ -1,35 +1,37 @@
-<h1>choicelist</h1>
+<div class="container">
+    <h1>私のたんす</h1>
+    <div class="btn_area">
+      <%= link_to '装い詳細へ戻る', coordinate_path(id: @coordinate.id), class: 'btn btn-default' %>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Image</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= image_tag item.image %></td>
-        <td>
-          <% if item.choices.find_by(coordinate_id: @coordinate.id).present? %>
-            <%= link_to '解除', choices_path(coordinate_id: @coordinate.id), method: :delete, class: 'btn btn-danger' %>
-          <% else %>
-            <%= link_to '選択', choices_path(coordinate_id: @coordinate.id), method: :post, class: 'btn btn-primary' %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Item', new_item_path %>
+  <% @items.each do |key,items| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><%= Category.find_by(id: key).name %></h4>
+    </div>
+    <div class="row panel-body">
+      <% items.each do |item| %>
+        <div class="col-sm-3 col-md-2">
+          <div class="thumbnail">
+            <div class="user_page_image_area">
+              <div class="coordinate_image"><%= link_to image_tag(item.image), item_path(item.id) %></div>
+            </div>
+            <div class="caption">
+              <p><%= item.title %></p>
+              <% if item.user_id == current_user.id %>
+                <div class="btn_area">
+                  <% if Choice.find_by(coordinate_id: @coordinate.id, item_id: item.id).present? %>
+                    <%= link_to "", choice_path(id: Choice.find_by(coordinate_id: @coordinate.id, item_id: item.id).id), method: :delete, class: 'glyphicon glyphicon-check' %>
+                  <% else %>
+                    <%= link_to "", choices_path(coordinate_id: @coordinate.id, item_id: item.id), method: :post, class: 'glyphicon glyphicon-unchecked' %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

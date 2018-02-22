@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   def choicelist
     @coordinate = Coordinate.find(params[:coordinate_id])
     @user = current_user
-    @items = Item.where(user_id: @user.id)
+    @items = Item.where(user_id: @user.id).group_by(&:category_id)
+    #@choice = @coordinate.choices.find_by(item_id: )
   end
 
   def favoritelist
