@@ -12,15 +12,15 @@
   <% end %>
 　<div class="jumbotron input_area">
     <div class="field">
-      <%= form.label :題名 %>
+      <%= form.label :title %>
       <%= form.text_field :title, id: :coordinate_title, placeholder: '装いの題名' %>
     </div>
     <div class="field">
-      <%= form.label :写真 %>
+      <%= form.label :image %>
       <%= form.file_field :image, id: :coordinate_image %>
     </div>
     <div class="field">
-      <%= form.label :内容 %>
+      <%= form.label :content %>
       <%= form.text_area :content, id: :coordinate_content, placeholder: '写真の説明、覚書など' %>
     </div>
     <div class="actions">

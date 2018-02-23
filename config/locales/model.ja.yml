@@ -2,6 +2,10 @@ ja:
   activerecord:
     models:
       user: "ユーザー"
+      coordinate: "装い"
+      item: "たんすの中身"
+      comment: "コメント"
+
     attributes:
       user:
         title: "タイトル"
@@ -12,3 +16,14 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      coordinate:
+        title: "装い名"
+        image: "写真"
+        content: "説明文"
+      item:
+        name: "名前"
+        image: "写真"
+        content: "説明文"
+        category_id: "分類"
+      comment:
+        content: "コメント内容"
