@@ -31,6 +31,8 @@ Rails.application.configure do
   config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+  #以下追記
+  config.assets.precompile +=  %w( *.woff *.eot *.svg *.ttf )
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
